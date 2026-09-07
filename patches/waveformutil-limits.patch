@@ -1,0 +1,11 @@
+diff --git a/src/util/src/WaveformUtil.cc b/src/util/src/WaveformUtil.cc
+index c864c1f..2f9ffed 100644
+--- a/src/util/src/WaveformUtil.cc
++++ b/src/util/src/WaveformUtil.cc
+@@ -1,5 +1,6 @@
+ #include <fftw3.h>
+ #include <sys/types.h>
++#include <limits>
+ 
+ #include <RAT/Log.hh>
+ #include <RAT/WaveformUtil.hh>

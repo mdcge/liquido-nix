@@ -27,9 +27,7 @@ stdenv.mkDerivation {
 
   setupHook = ./ratpac-setup-hook.sh;
 
-  patches = lib.optionals stdenv.isDarwin [
-    ../patches/macos-clang-fixes.patch
-  ];
+  patches = [../patches/waveformutil-limits.patch];
 
   postInstall = ''
     wrapProgram $out/bin/rat \

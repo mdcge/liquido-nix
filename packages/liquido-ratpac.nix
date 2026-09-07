@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation {
   pname = "liquido-ratpac";
-  version = "26-07";
+  version = "26-09";
 
   src = fetchFromGitHub {
     owner = "liquid-o";
     repo = "ratpac-two";
-    rev = "27ad0c702d97f0fa4b19a609ed8ff2b70291696e";
-    sha256 = "sha256-7Fm0i4I5gDhawMh16QEh2k+Nm/TEbRjqzt6OIMTnFUA=";
+    rev = "0a56a499776f0df55d8ceb1b676be9221353220f";
+    sha256 = "sha256-cHOiKh/zf3XSKzMR0f6PyAP2B0F8eUVmtxcCD8gtD9U=";
   };
 
   nativeBuildInputs = [ cmake pkg-config makeWrapper ];

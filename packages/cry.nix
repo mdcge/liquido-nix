@@ -13,10 +13,13 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     runHook preInstall
-    mkdir -p $out/lib $out/include $out/share/cry/data
+    mkdir -p $out/lib $out/include $out/share/cry/data $out/nix-support
     cp lib/libCRY.a   $out/lib/
     cp src/*.h        $out/include/
     cp -r data/*      $out/share/cry/data/
+
+    echo "export CRYDATA=\"$out/share/cry/data\"" > $out/nix-support/setup-hook
+    
     runHook postInstall
   '';
 

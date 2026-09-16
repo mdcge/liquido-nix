@@ -15,9 +15,11 @@
     flake-utils.lib.eachDefaultSystem(system:
       let
         pkgs = import nixpkgs { inherit system; };
+        cry  = pkgs.callPackage ./packages/cry.nix {};
       in {
-        packages.liquido-ratpac = pkgs.callPackage ./packages/liquido-ratpac.nix {};
-        packages.default = self.packages.${system}.liquido-ratpac;
+        packages.cry            = cry;
+        packages.liquido-ratpac = pkgs.callPackage ./packages/liquido-ratpac.nix { inherit cry; };
+        packages.default        = self.packages.${system}.liquido-ratpac;
 
         devShells.default = pkgs.mkShell {
           inputsFrom = [ self.packages.${system}.liquido-ratpac ];

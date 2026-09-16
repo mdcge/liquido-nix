@@ -1,4 +1,4 @@
-{ lib, stdenv, cmake, pkg-config, makeWrapper, fetchFromGitHub, geant4, root, fftw }:
+{ lib, stdenv, cmake, pkg-config, makeWrapper, fetchFromGitHub, geant4, root, fftw, cry }:
 
 stdenv.mkDerivation {
   pname = "liquido-ratpac";
@@ -23,7 +23,12 @@ stdenv.mkDerivation {
                   geant4.data.G4SAIDDATA
                   root
                   fftw
+                  cry
                 ];
+
+  CRYLIB     = "${cry}/lib";
+  CRYINCLUDE = "${cry}/include";
+  CRYDATA    = "${cry}/share/cry/data";
 
   setupHook = ./ratpac-setup-hook.sh;
 
@@ -39,7 +44,8 @@ stdenv.mkDerivation {
     --set G4RADIOACTIVEDATA "$(echo ${geant4.data.G4RadioactiveDecay}/share/Geant4-*/data/G4RadioactiveDecay*)" \
     --set G4PARTICLEXSDATA "$(echo ${geant4.data.G4PARTICLEXS}/share/Geant4-*/data/G4PARTICLEXS*)" \
     --set G4REALSURFACEDATA "$(echo ${geant4.data.G4RealSurface}/share/Geant4-*/data/G4RealSurface*)" \
-    --set G4SAIDXSDATA "$(echo ${geant4.data.G4SAIDDATA}/share/Geant4-*/data/G4SAIDDATA*)"
+    --set G4SAIDXSDATA "$(echo ${geant4.data.G4SAIDDATA}/share/Geant4-*/data/G4SAIDDATA*)" \
+    --set CRYDATA "${cry}/share/cry/data"
   '';
   
   meta = {

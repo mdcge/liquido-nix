@@ -11,6 +11,11 @@ stdenv.mkDerivation rec {
 
   dontConfigure = true;
 
+  makeFlags = lib.optionals stdenv.hostPlatform.isDarwin [
+    "CXX=c++"
+    "CC=cc"
+  ];
+
   installPhase = ''
     runHook preInstall
     mkdir -p $out/lib $out/include $out/share/cry/data $out/nix-support

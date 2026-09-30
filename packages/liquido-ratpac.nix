@@ -34,6 +34,15 @@ stdenv.mkDerivation {
 
   patches = [../patches/waveformutil-limits.patch];
 
+  # Allow undefined symbols in linker, until load time
+  postPatch = lib.optionalString stdenv.hostPlatform.isDarwin ''
+    cat >> src/CMakeLists.txt <<'EOF'
+    if(APPLE)
+      target_link_options(RATEvent PRIVATE -Wl,-undefined,dynamic_lookup)
+    endif()
+    EOF
+  '';
+
   postInstall = ''
     wrapProgram $out/bin/rat \
     --set RATSHARE "$out/share/RAT" \

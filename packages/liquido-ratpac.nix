@@ -26,6 +26,13 @@ stdenv.mkDerivation {
                   cry
                 ];
 
+  # Disable libc++ hardening checks
+  env.NIX_CXXFLAGS_COMPILE = "-D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_NONE";
+
+  # for a readable backtrace
+  cmakeBuildType = "RelWithDebInfo";
+  dontStrip = true;
+
   CRYLIB     = "${cry}/lib";
   CRYINCLUDE = "${cry}/include";
   CRYDATA    = "${cry}/share/cry/data";

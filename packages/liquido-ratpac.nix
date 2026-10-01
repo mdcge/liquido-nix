@@ -32,7 +32,7 @@ stdenv.mkDerivation {
 
   setupHook = ./ratpac-setup-hook.sh;
 
-  patches = [../patches/waveformutil-limits.patch];
+  patches = [ ../patches/waveformutil-limits.patch ../patches/pmtopticalmodel-daughters.patch ];
 
   # Allow undefined symbols in linker, until load time
   postPatch = lib.optionalString stdenv.hostPlatform.isDarwin ''

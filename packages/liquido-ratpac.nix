@@ -7,8 +7,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "liquid-o";
     repo = "ratpac-two";
-    rev = "0454bff29ccc29f7ad05a0f1e5b2ddaa77ce77de";
-    sha256 = "sha256-hfY2cr2gGW9h98OsyRGMeX3DpiRApwTtrY8sPvWAAJ8=";
+    rev = "cc0aebf23429d81621f6b478423d55bc3cf3f31f";
+    sha256 = "sha256-mDcVIxQxM73DqK6Iq8DcGRS/GV8g8zUdI4K4VJ0m5VE=";
   };
 
   nativeBuildInputs = [ cmake pkg-config makeWrapper ];
@@ -32,7 +32,7 @@ stdenv.mkDerivation {
 
   setupHook = ./ratpac-setup-hook.sh;
 
-  patches = [ ../patches/waveformutil-limits.patch ../patches/pmtopticalmodel-daughters.patch ];
+  patches = [ ../patches/waveformutil-limits.patch ];
 
   # Allow undefined symbols in linker, until load time
   postPatch = lib.optionalString stdenv.hostPlatform.isDarwin ''

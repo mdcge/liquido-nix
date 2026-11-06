@@ -7,8 +7,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "liquid-o";
     repo = "ratpac-two";
-    rev = "ae5ed8477b4cb3837df6ea42badf0569f1f34f1d";
-    sha256 = "sha256-qXhXAHzjzF41qsBLGuI7xZftS7MsFIeUabQoPMLXa9c=";
+    rev = "58d56cb81a01619b53290ff15b0c0f67379ea8c5";
+    sha256 = "sha256-1TOEYBBof/udXJsiAHtM5Jor8FgpK7TDy52bODIpjT8=";
   };
 
   nativeBuildInputs = [ cmake pkg-config makeWrapper ];

@@ -1,4 +1,4 @@
-{ lib, stdenv, cmake, pkg-config, makeWrapper, fetchFromGitHub, geant4, root, fftw, cry }:
+{ lib, stdenv, cmake, curl, pkg-config, makeWrapper, fetchFromGitHub, geant4, root, fftw, cry }:
 
 stdenv.mkDerivation {
   pname = "liquido-ratpac";
@@ -24,6 +24,7 @@ stdenv.mkDerivation {
                   root
                   fftw
                   cry
+                  curl
                 ];
 
   CRYLIB     = "${cry}/lib";

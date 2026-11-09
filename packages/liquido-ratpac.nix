@@ -39,7 +39,7 @@ stdenv.mkDerivation {
   postPatch = lib.optionalString stdenv.hostPlatform.isDarwin ''
     cat >> src/CMakeLists.txt <<'EOF'
     if(APPLE)
-      target_link_options(RATEvent PRIVATE -Wl,-undefined,dynamic_lookup)
+      target_link_options(RATPAC PRIVATE -Wl,-undefined,dynamic_lookup)
     endif()
     EOF
   '';

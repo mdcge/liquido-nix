@@ -7,9 +7,15 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "liquid-o";
     repo = "ratpac-two";
-    rev = "58d56cb81a01619b53290ff15b0c0f67379ea8c5";
-    sha256 = "sha256-1TOEYBBof/udXJsiAHtM5Jor8FgpK7TDy52bODIpjT8=";
+    rev = "b2e2a466097d8f7ca370681dd0d0bd91a6116b6e";
+    sha256 = "sha256-lBcROpCzh7FinvE8maujHlPVSmZU8ZU0HhCQv5Gr/s0=";
   };
+  # src = fetchFromGitHub {
+  #   owner = "liquid-o";
+  #   repo = "ratpac-two";
+  #   rev = "58d56cb81a01619b53290ff15b0c0f67379ea8c5";
+  #   sha256 = "sha256-1TOEYBBof/udXJsiAHtM5Jor8FgpK7TDy52bODIpjT8=";
+  # };
 
   nativeBuildInputs = [ cmake pkg-config makeWrapper ];
   buildInputs = [ geant4
